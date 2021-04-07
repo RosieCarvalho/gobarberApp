@@ -1,0 +1,15 @@
+-->icones
+yarn add react-native-vector-icons
+depois: android/app/buid.gradle
+ -- project.ext.vectoricons = [
+    iconFontNames: [ 'Feather.ttf' ]
+  ]
+  apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+
+--> ios: lib ajuda a verificar as margens
+yarn add react-native-iphone-x-helper
+
+
+--> formularios
+yarn add @unform/core @unform/mobile
