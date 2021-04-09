@@ -15,6 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import * as Yup from 'yup';
+import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
 import getValidationErrors from '../../utils/getValidationErros';
@@ -48,10 +49,16 @@ const SignUp: React.FC = () => {
         abortEarly: false,
       });
 
-      // await api.post('/users', data);
-
-      // history.push('/');
+      console.log("data",data)
+      await api.post('/users', data);
+      navigation.goBack();
+      Alert.alert(
+        'Cadastrado com sucesso',
+        'Você já pode logar',
+      );
     } catch (err) {
+      console.log('eerr',err)
+
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
 
